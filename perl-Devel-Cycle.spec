@@ -16,6 +16,7 @@ BuildRequires:	perl-devel
 %endif
 Requires:	perl-PadWalker >= 1.0
 BuildArch: 	noarch
+BuildRoot: 	%{_tmppath}/%{name}-%{version}
 
 %description
 This is a simple developer's tool for finding circular references in objects
