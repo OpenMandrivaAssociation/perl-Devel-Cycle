@@ -1,22 +1,22 @@
-%define module  Devel-Cycle
-%define name	perl-%{module}
-%define version 1.10
-%define release %mkrel 1
+%define upstream_name    Devel-Cycle
+%define upstream_version 1.10
 
-Name:		%{name}
-Version: 	%{version}
-Release: 	%{release}
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary: 	Find memory cycles in objects
-License: 	GPL or Artistic
+License: 	GPL+ or Artistic
 Group: 		Development/Perl
-Source:		ftp://ftp.perl.org/pub/CPAN/modules/by-module/Devel/%{module}-%{version}.tar.bz2
-Url:		http://search.cpan.org/dist/%{module}
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Devel/%{upstream_name}-%{upstream_version}.tar.bz2
+
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
 Requires:	perl-PadWalker >= 1.0
 BuildArch: 	noarch
-BuildRoot: 	%{_tmppath}/%{name}-%{version}
+BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 This is a simple developer's tool for finding circular references in objects
@@ -24,7 +24,7 @@ and other types of references. Because of Perl's reference-count based
 memory management, circular references will cause memory leaks.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -45,4 +45,3 @@ rm -rf %{buildroot}
 %doc Changes README
 %{perl_vendorlib}/Devel
 %{_mandir}/*/*
-
