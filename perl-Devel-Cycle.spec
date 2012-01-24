@@ -3,17 +3,13 @@
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Release:    %mkrel 3
 
 Summary: 	Find memory cycles in objects
 License: 	GPL+ or Artistic
 Group: 		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
 Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Devel/%{upstream_name}-%{upstream_version}.tar.gz
-
-%if %{mdkversion} < 1010
-BuildRequires:	perl-devel
-%endif
 Requires:	perl-PadWalker >= 1.0
 BuildArch: 	noarch
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}
