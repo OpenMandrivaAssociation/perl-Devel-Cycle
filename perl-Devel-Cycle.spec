@@ -1,14 +1,14 @@
 %define modname    Devel-Cycle
-%define modver 1.11
+%define modver 1.12
 
 Summary:	Find memory cycles in objects
 Name:		perl-%{modname}
 Version:	%perl_convert_version %{modver}
-Release:	12
+Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}
-Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Devel/%{modname}-%{modver}.tar.gz
+Source0:	ftp://ftp.perl.org:21/pub/CPAN/modules/by-module/Devel/%{modname}-%{modver}.tar.gz
 BuildArch:	noarch
 BuildRequires:	perl-devel
 Requires:	perl-PadWalker >= 1.0
@@ -22,7 +22,7 @@ memory management, circular references will cause memory leaks.
 %setup -qn %{modname}-%{modver}
 
 %build
-%__perl Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
@@ -35,4 +35,3 @@ make test
 %doc Changes README
 %{perl_vendorlib}/Devel
 %{_mandir}/man3/*
-
