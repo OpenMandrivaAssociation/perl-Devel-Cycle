@@ -10,6 +10,7 @@ Group:		Development/Perl
 Url:		https://search.cpan.org/dist/%{modname}
 Source0:	ftp://ftp.perl.org:21/pub/CPAN/modules/by-module/Devel/%{modname}-%{modver}.tar.gz
 BuildArch:	noarch
+BuildRequires:	make
 BuildRequires:	perl-devel
 Requires:	perl-PadWalker >= 1.0
 BuildRequires:	perl(Test)
